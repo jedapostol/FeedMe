@@ -1,0 +1,14 @@
+{
+  "name": "FeedMe",
+  "version": "0.0.1",
+  "authors": [
+    "jedapostol@gmail.com"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.3.3",
+    "polymer-elements": "Polymer/polymer-elements#~0.3.0",
+    "polymer-ui-elements": "Polymer/polymer-ui-elements#~0.3.0",
+    "platform": "Polymer/platform#~0.3.3"
+  },
+  "devDependencies": {}
+}
