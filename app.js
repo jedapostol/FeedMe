@@ -8,17 +8,16 @@ var app = express();
 var port = 3000;
 var oneDay = 86400000;
 
-
 app.use(express.compress());
-app.use(express.static(__dirname + '/public'/*, { maxAge: oneDay }*/));
+// Might want to add the { maxAge: oneDay } to cache some assets
+app.use(express.static(__dirname + '/public'));
 
 /*
  * Routes
  */
-app.get('/', function(request, response, next) {    	
+app.get('/', function(request, response, next) {
     response.status(200).sendfile('./public/index.html');
 });
-
 
 /*
  * Start it up

@@ -15,7 +15,7 @@ module.exports = function (grunt) {
                 livereload: true
             },
             publicDomain: {
-                files: ['public/*'],
+                files: [ 'public/*' ],
             },
             scripts: {
                 files: [
@@ -26,10 +26,6 @@ module.exports = function (grunt) {
                 files: [
                     'assets/styles/**/*.css',
                 ],
-            },
-            sass: {
-                files: ['assets/styles/**/*.scss'],
-                tasks: ['sass:dev']
             },
             images: {
                 files: [
@@ -48,16 +44,16 @@ module.exports = function (grunt) {
         // Clean Config
         clean: {
             dist: {
-                files: [{
+                files: [ {
                     dot: true,
                     src: [
                         '.tmp',
                         'dist/*',
                         '!dist/.git*'
                     ]
-                }]
+                } ]
             },
-            server: ['.tmp'],
+            server: [ '.tmp' ],
         },
 
         // Hint Config
@@ -83,13 +79,13 @@ module.exports = function (grunt) {
                     style: 'expanded',
                     lineComments: true
                 },
-                files: [{
+                files: [ {
                     expand: true,
                     cwd: 'assets/styles/sass',
                     dest: 'assets/styles',
-                    src: ['screen.scss'],
+                    src: [ 'screen.scss' ],
                     ext: '.css'
-                }]
+                } ]
             }
         },
 
@@ -113,7 +109,7 @@ module.exports = function (grunt) {
             },
             editor: {
                 path: './',
-                app: 'Sublime Text 2'
+                app: 'Atom'
             },
         },
 
@@ -136,38 +132,38 @@ module.exports = function (grunt) {
             options: {
                 dest: 'dist/assets'
             },
-            html: ['assets/{,*/}*.html', 'views/**/*.handlebars']
+            html: [ 'assets/{,*/}*.html', 'views/**/*.handlebars' ]
         },
         usemin: {
             options: {
                 dirs: ['dist/assets'],
                 basedir: 'dist/assets',
             },
-            html: ['dist/assets/{,*/}*.html', 'dist/views/**/*.handlebars'],
-            css: ['dist/assets/styles/{,*/}*.css']
+            html: [ 'dist/assets/{,*/}*.html', 'dist/views/**/*.handlebars' ],
+            css: [ 'dist/assets/styles/{,*/}*.css' ]
         },
 
         // Imagemin Config
         imagemin: {
             dist: {
-                files: [{
+                files: [ {
                     expand: true,
                     cwd: 'assets/images',
                     src: '**/*.{png,jpg,jpeg}',
                     dest: 'dist/assets/images'
-                }]
+                } ]
             }
         },
 
         // SVGmin Config
         svgmin: {
             dist: {
-                files: [{
+                files: [ {
                     expand: true,
                     cwd: 'assets/images',
                     src: '{,*/}*.svg',
                     dest: 'dist/assets/images'
-                }]
+                } ]
             }
         },
 
@@ -203,12 +199,12 @@ module.exports = function (grunt) {
                     removeEmptyAttributes: true,
                     removeOptionalTags: true*/
                 },
-                files: [{
+                files: [ {
                     expand: true,
                     cwd: 'assets',
                     src: '*.html',
                     dest: 'dist/assets'
-                }]
+                } ]
             }
         },
 
@@ -216,7 +212,7 @@ module.exports = function (grunt) {
         // Put files not handled in other tasks here
         copy: {
             dist: {
-                files: [{
+                files: [ {
                     expand: true,
                     dot: true,
                     cwd: 'assets',
@@ -233,7 +229,7 @@ module.exports = function (grunt) {
                     cwd: 'views',
                     dest: 'dist/views/',
                     src: '**/*.handlebars',
-                }]
+                } ]
             },
             styles: {
                 expand: true,
@@ -256,20 +252,18 @@ module.exports = function (grunt) {
 
     // Register Tasks
     // Workon
-    grunt.registerTask('workon', 'Start working on this project.', [            
+    grunt.registerTask('workon', 'Start working on this project.', [
         'express:dev',
         'open:site',
         'open:editor',
         'watch'
     ]);
 
-
     // Restart
     grunt.registerTask('restart', 'Restart the server.', [
         'express:dev',
         'watch'
     ]);
-    
 
     // Build
     grunt.registerTask('build', 'Build production ready assets and views.', [

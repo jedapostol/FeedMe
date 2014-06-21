@@ -41,5 +41,6 @@
   },
   "_source": "git://github.com/Polymer/polymer-elements.git",
   "_target": "~0.3.0",
-  "_originalSource": "Polymer/polymer-elements"
+  "_originalSource": "Polymer/polymer-elements",
+  "_direct": true
 }
