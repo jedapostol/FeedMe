@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
     // show elapsed time at the end
     require('time-grunt')(grunt);
     // load all grunt tasks
@@ -10,7 +10,7 @@ module.exports = function (grunt) {
 
         // Watch Config
         watch: {
-            files: ['views/**/*'],
+            files: [ 'views/**/*' ],
             options: {
                 livereload: true
             },
@@ -59,13 +59,11 @@ module.exports = function (grunt) {
         // Hint Config
         jshint: {
             options: {
-                jshintrc: '.jshintrc'
+                jshintrc: '.jscsrc'
             },
             all: [
                 'Gruntfile.js',
-                'assets/scripts/**/*.js',
-                '!assets/scripts/vendor/*',
-                'test/spec/**/*.js'
+                'public/*.js'
             ]
         },
 

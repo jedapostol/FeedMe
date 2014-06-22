@@ -1,0 +1,31 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/polymer-ui-menu-item/polymer-ui-menu-item.html">
+<link rel="import" href="../bower_components/polymer-ui-sidebar-menu/polymer-ui-sidebar-menu.html">
+<link rel="import" href="../bower_components/polymer-jsonp/polymer-jsonp.html">
+<link rel="import" href="../feedme-list-item.html">
+<polymer-element name="feedme-list">
+
+  <template>
+    <!-- Define styles for web component -->
+    <style>
+      :host {
+        display: block;
+        float: left;
+        height: 100%;
+        width: 30%;
+      }
+      #feedme-list-master-container, #side-menu {
+        height: 100%;
+      }
+      polymer-ui-menu-item #label{
+        white-space: pre-wrap;
+      }
+    </style>
+    <polymer-jsonp id="jsonp" url="https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.feedburner.com/TEDTalks_video&num=10&callback=" response="{{data}}">
+    </polymer-jsonp>
+    <div id="feedme-list-master-container" class="menu">
+    </div>
+  </template>
+  <script src="/feedme-list.js"></script>
+
+</polymer-element>

@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- 1. Load platform.js for polyfill support. -->
-    <script src="bower_components/platform/platform.js"></script>
-
-    <!-- 2. Use an HTML Import to bring in the element. -->
-    <link rel="import" href="bower_components/polymer-jsonp/polymer-jsonp.html">
+    <style>
+      html {
+        height: 99%;
+      }
+      body {
+        height: 100%;
+        min-height: 100%;
+        margin: 0;
+      }
+    </style>
   </head>
   <body>
-    <div>This is pretty cool! I like grunt Very very much!</div>
-    <!-- 3. Declare the element. Configure using its attributes. -->
-<polymer-jsonp url="https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.feedburner.com/TEDTalks_video&callback="
-    response="{{data}}"></polymer-jsonp>
-    <script>
-      // Wait for 'polymer-ready'. Ensures the element is upgraded.
-      window.addEventListener('polymer-ready', function(e) {
-        var jsonp = document.querySelector('polymer-jsonp');
-              
-        jsonp.addEventListener('polymer-response', function(e) {
-          console.log(this.response);
-        });
+    <feedme-list></feedme-list>
+    <div class="feedme-main-container">
 
-        jsonp.go();
-      });
-    </script>
+    </div>
   </body>
+  <script src="/bower_components/platform/platform.js"></script>
+  <script src="/bower_components/underscore/underscore.js"></script>
+  <link rel="import" href="/feedme-list.html">
 </html>
