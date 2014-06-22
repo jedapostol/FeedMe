@@ -11,7 +11,7 @@
         float: left;
         height: 100%;
         width: 30%;
-        border-right: 1px solid black;
+        border-right: 1px solid #ccc;
       }
       #feedme-list-master-container, #side-menu {
         height: 100%;
@@ -28,7 +28,7 @@
         padding: 0;
       }
     </style>
-    <polymer-jsonp id="jsonp" url="https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.feedburner.com/TEDTalks_video&num=10&callback=" response="{{data}}">
+    <polymer-jsonp id="jsonp" url="https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.feedburner.com/TEDTalks_video&num=20&callback=" response="{{data}}">
     </polymer-jsonp>
     <div id="feedme-list-master-container" class="menu">
       <ul id="feedme-list"></ul>

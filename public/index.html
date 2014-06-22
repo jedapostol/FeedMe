@@ -15,19 +15,21 @@
         float:left;
         height: 100%;
         width: 69%;
-        text-align:center;
       }
       .top-menu {
-        color: red;
-        height: 3%;
-        position: fixed;
+        color: #e62b1e;
+        display: block;
+        height: 8%;
         text-align: center;
-        width: inherit;
+        width: 100%;
       }
       .top-menu h1 {
         font-size: 3.2em;
         margin: 0;
         letter-spacing: -4px;
+      }
+      .browser {
+        height: 92%;
       }
     </style>
   </head>
@@ -36,12 +38,15 @@
     <feedme-list></feedme-list>
     <div class="feedme-main-container">
       <div class="top-menu">
-        <h1>TED<h1>
+        <h1>TED</h1>
       </div>
-      <div class="browser"></div>
+      <div class="browser">
+        <feedme-item-details></feedme-item-details>
+      </div>
     </div>
   </body>
   <script src="/bower_components/platform/platform.js"></script>
   <script src="/bower_components/underscore/underscore.js"></script>
   <link rel="import" href="/custom_elements/feedme-list.html">
+  <link rel="import" href="/custom_elements/feedme-item-details.html">
 </html>
