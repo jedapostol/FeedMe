@@ -15,10 +15,14 @@ module.exports = function(grunt) {
                 livereload: true
             },
             publicDomain: {
-                files: [ 'public/*' ],
+                files: [
+                    'public/*',
+                    'public/custom_elements/*'
+                ],
             },
             scripts: {
                 files: [
+                    'public/custom_elements/*.js',
                     'assets/scripts/**/*.js',
                 ],
             },
