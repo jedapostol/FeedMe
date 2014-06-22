@@ -1,44 +1,18 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../custom_elements/feedme-item-details-template.html">
 <polymer-element name="feedme-item-details">
 
   <template>
     <!-- Define styles for web component -->
     <style>
       :host {
-        background-color: #EBE8E8;
-        border-radius: 5px;
-        clear: both;
-        display: block;
-        height: 90%;
-        margin: 0 auto;
-        width: 92%;
+
       }
       :host .instructions {
         display: block;
         font-size: .8em;
         opacity: .5;
         text-align: center;
-      }
-      :host .thumbnail {
-        clear: both;
-        display: block;
-        margin: 0 auto;
-        padding: 15px;
-      }
-      :host .meta-data {
-        display: block;
-        font-size: .8em;
-      }
-      :host h2, :host .meta-data {
-        text-align: center;
-      }
-      :host p , :host .continue{
-        font-size: .9em;
-      }
-      :host .continue{
-        color: #e62b1e;
-        margin-left: 2px;
-        text-decoration: none;
       }
     </style>
     <div id="feedme-item-details" class="menu">
@@ -49,26 +23,21 @@
 (function() {
     'use strict'
     Polymer('feedme-item-details', {
-      contentTemplate: _(
-        '<div>' +
-          '<img class="thumbnail" src="<%= data.preview.thumbnails[0].url %>"" />'+
-          '<h2><%= data.title %></h2>'+
-          '<span class="meta-data"><strong><label>By: </label></strong><%= data.author %></span>' +
-          '<span class="meta-data"><strong><label>Date: </label></strong><%= data.date %></span>' +
-          '<p><%= data.content %><a class="continue" href="<%= data.link %>" target="_blank">Continue Reading in Site</a></p>' +
-          '<span class="categories"><strong><label>Categories: </label></strong><%= data.categories %></span>' +
-        '</div>'
-      ).template(null, { variable: 'data' }),
       parseContent: function(info) {
-        this.$['feedme-item-details'].innerHTML = this.contentTemplate({
+        var parsedData = {
           title: info.title,
           date: info.publishedDate,
           author: info.author,
           link: info.link,
-          content: info.content,
+          //content must be parsed, since the source contains html, polymer cannot insert html using expressions, as it is escaped.
+          content: info.content.substring(0, info.content.indexOf('<img src')),
           categories: info.categories.toString(),
           preview: ((info.mediaGroups.length > 0 && info.mediaGroups[0].contents.length > 0) ? info.mediaGroups[0].contents[0] : {})
-        })
+        };
+        var tempElm = document.createElement('feedme-item-details-template');
+        tempElm.datasource = parsedData;
+        this.$['feedme-item-details'].innerHTML = '';
+        this.$['feedme-item-details'].appendChild(tempElm)
       }
     });
 })();
