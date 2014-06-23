@@ -1,0 +1,48 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<polymer-element name="feedme-list-item" attributes="datasource">
+
+  <template>
+    <style>
+      :host {
+        display: block;
+        float:left;
+        padding: 10px;
+        border-bottom: 2px solid #ccc;
+        border-radius: 5px;
+        border-left: 5px solid white;
+      }
+      :host a.title {
+        font-size: .9em;
+        font-weight: bold;
+        color: black;
+      }
+      :host p {
+        background-color: #EBE8E8;
+      }
+      :host(:hover) {
+        background-color: rgba(230, 230, 230, 0.97);
+        border-left: 5px solid #e62b1e;
+        cursor: pointer
+      }
+      :host .meta-data {
+        display: block;
+        font-size: .8em;
+      }
+      :host .preview {
+        font-size: .8em;
+      }
+      :host strong {
+        font-size: .8em;
+        font-weight: bold;
+      }
+    </style>
+    <li on-click="{{ itemClick }}">
+      <a class="title">{{ datasource.title }}</a>
+      <span class="meta-data"><strong><label>By:</label></strong> {{ datasource.author }}<span>
+      <span class="meta-data"><strong><label>Date:</label></strong> {{ datasource.publishedDate }}</span>
+      <p class="preview">{{ datasource.contentSnippet }}</p>
+    </li>
+  </template>
+  <script src="feedme-list-item.js"></script>
+
+</polymer-element>
